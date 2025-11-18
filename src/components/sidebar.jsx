@@ -66,7 +66,6 @@ export default function Sidebar({ isOpen, toggleSidebar }) {
         isOpen ? "translate-x-0" : "translate-x-full"
       } transition-transform duration-300 ease-in-out z-50`}
     >
-      {/* Header */}
       <div className="flex justify-between items-center p-4 border-b border-gray-700">
         <h2 className="text-lg font-bold">Carrito</h2>
         <button
@@ -77,7 +76,6 @@ export default function Sidebar({ isOpen, toggleSidebar }) {
         </button>
       </div>
 
-      {/* Lista de productos */}
       <div className="p-4 space-y-3 overflow-y-auto h-[calc(100%-200px)]">
         {cartItems.length === 0 ? (
           <p className="text-gray-400">Tu carrito está vacío</p>
