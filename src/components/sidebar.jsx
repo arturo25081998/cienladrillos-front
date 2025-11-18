@@ -1,6 +1,7 @@
 import { getAllItemsInCart } from "@/utils/api";
 import { useState, useEffect } from "react";
 import CartItem from "./CartItem";
+import Link from "next/link";
 
 export default function Sidebar({ isOpen, toggleSidebar }) {
   const userId =
@@ -91,15 +92,17 @@ export default function Sidebar({ isOpen, toggleSidebar }) {
         )}
       </div>
 
-      <div className="p-4 border-t border-gray-700">
+      <div className="p-4 border-t border-gray-700 flex flex-col">
         <div className="flex justify-between font-semibold text-lg mb-3">
           <span>Total:</span>
           <span>${total.toLocaleString()}</span>
         </div>
-
-        <button className="w-full bg-blue-600 hover:bg-blue-700 py-2 rounded-lg font-semibold">
+        <Link
+          href="/checkout"
+          className="p-6 w-full bg-blue-600 hover:bg-blue-700 py-2 rounded-lg font-semibold text-center"
+        >
           Proceder al pago
-        </button>
+        </Link>
       </div>
     </div>
   );

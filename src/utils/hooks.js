@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getAllProperties } from "./api";
+import { getAllProperties, getAllItemsInCart } from "./api";
 
 export function useProperties() {
   const [properties, setProperties] = useState([]);
@@ -11,4 +11,17 @@ export function useProperties() {
   }, []);
 
   return { properties };
+}
+
+export function useItemsCart(userId) {
+  const [itemsCart, setItemsCart] = useState([]);
+
+  useEffect(() => {
+    if (!userId) return;
+    getAllItemsInCart(userId)
+      .then((data) => setItemsCart(data.items))
+      .catch((error) => console.log("useItemsCart error: ", error));
+  }, [userId]);
+  console.log(itemsCart);
+  return { itemsCart };
 }
